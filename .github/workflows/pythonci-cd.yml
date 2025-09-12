@@ -1,12 +1,13 @@
 name: Python application
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  jobs:
+ jobs:
     build:
-      runs-on: ubuntu-latest 
+      runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
         - name: set up Python
@@ -15,3 +16,4 @@ on:
             python-version: '3.11'
         - name: run app.py code
           run: python app.py
+
