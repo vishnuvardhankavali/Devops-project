@@ -17,4 +17,7 @@ jobs:
             python-version: '3.11'
         - name: run app.py code
           run: python app.py
-
+	- name: install depencies
+	  run: pip install -r requirements.txt
+	- name: Run tests
+	  run: pytest
