@@ -1,4 +1,14 @@
-# app.py
-print("Hello from inside Docker!")
-print("Vishnu, learnfast Devops with focus")
-print ("have grate jouney")
+from flask import Flask
+import redis
+
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+
+@app.route('/')
+def hello():
+    count = cache.incr('hits')
+    return f'Hello! This page has been visited {count} times.'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+

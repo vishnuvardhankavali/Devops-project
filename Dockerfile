@@ -1,6 +1,12 @@
-FROM ubuntu:latest
-WORKDIR /app
-COPY app.py .
-run apt-get update && apt install -y  python3
+FROM python:3.10-slim
 
-CMD ["python3", "app.py"]
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app.py ./
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
