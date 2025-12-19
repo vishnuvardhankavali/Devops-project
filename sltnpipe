@@ -1,0 +1,6 @@
+#pipeline wriring 
+
+pipeline {
+	agent any {
+
+	stages 
