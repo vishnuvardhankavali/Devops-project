@@ -1,0 +1,28 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Checkout') {
+         steps {
+            # Checkout code from version control
+            git 'https://github.com/
+         }
+      }
+      stage('Build") {
+         steps {
+            sh 'mvn clean packages'
+         }
+      }
+      stage('test') {
+         steps {
+            sh 'mvn sonar:sonar'
+
+         }  
+      } 
+      stage('Deploy') {
+         steps {
+            sh 'mvn deploy'
+         }
+      }
+   }
+}
